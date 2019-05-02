@@ -2,10 +2,10 @@
 	<div class="container-fluid">
 		<h1 class="text-center my-5">Welcome Home</h1>
 		<div class="mt-4 d-flex justify-content-between">
-			<button :disabled="!articles.prev_page_url" @click="getArticles(articles.prev_page_url)" class="btn btn-warning">
+			<button :disabled="!articles.prev_page_url" @click="customGet(articles.prev_page_url)" class="btn btn-warning">
 				Prev Page
 			</button>
-			<button :disabled="!articles.next_page_url" @click="getArticles(articles.next_page_url)" class="btn btn-warning">
+			<button :disabled="!articles.next_page_url" @click="customGet(articles.next_page_url)" class="btn btn-warning">
 				Next Page
 			</button>
 		</div>
@@ -13,8 +13,7 @@
 		</div>
 		<div class="row" v-else>
 			<div class="col-md-10 offset-md-1" v-for="article in articles.data" :key="article.id">
-				<Article :id="article.id" :title="article.title" :content="article.content.substring(0, 160)"
-				         :slug="article.slug"/>
+				<Article :id="article.id" :title="article.title" :content="article.content.substring(0, 160)" :slug="article.slug"/>
 			</div>
 		</div>
 	</div>
@@ -40,6 +39,10 @@
 			}
 		},
 		methods: {
+			customGet(next) {
+				let k = next.split('?');
+				this.getArticles(`${config.apiUrl}articles?${k[1]}`);
+			},
 			getArticles(url = `${config.apiUrl}articles`) {
 				this.loading = true;
 				Axios.get(url)
