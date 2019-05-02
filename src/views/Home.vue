@@ -9,7 +9,7 @@
 				Next Page
 			</button>
 		</div>
-		<div class="text-center my-5" v-if="loading"><i class="my-5 fas fa-spin fa-spinner fa-9x" style="color: #00f"></i>
+		<div class="text-center my-5" v-if="loading"><i class="my-5 fas fa-spin fa-spinner fa-9x" style="color: #ffc107"></i>
 		</div>
 		<div class="row" v-else>
 			<div class="col-md-10 offset-md-1" v-for="article in articles.data" :key="article.id">
