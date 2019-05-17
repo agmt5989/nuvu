@@ -6,7 +6,7 @@ import Home from './views/Home.vue';
 import Article from './views/Article.vue';
 import CreateArticle from './views/CreateArticle.vue';
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
   mode: 'history',
