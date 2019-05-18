@@ -25,7 +25,7 @@
 <style>
 	* {
 		font-family: 'Orotund', sans-serif;
-		border-radius: 0px !important;
+		border-radius: 0 !important;
 	}
 
 	body {
